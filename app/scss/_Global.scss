@@ -109,14 +109,28 @@ h2{
 }
 //buttons
 button,.button{
+    position: relative;
     padding:1rem 1.875rem;
     border-radius: 50px;
     display: inline-block;
     background:linear-gradient(to right,$LimeGreen,$BrightCyan);
     color: $White;
     font-weight: 400;
-    &:hover{
-        opacity: .75;
+    &::before
+    {
+        content: "";
+        position: absolute;
+        left: 0;
+        right:0;
+        top: 0;
+        border-radius: 50px;
+        bottom: 0;
+        background-color: rgba(255,255,255,0.25 );
+        opacity: 0;
+        transition: opacity 130ms ease-in-out;
+    }
+    &:hover::before{
+        opacity: 1;
     }
 }
 .hide-from-desktop{
